@@ -1,0 +1,23 @@
+/* Create this new file for global transitions */
+
+/* Add smooth transitions to all necessary elements */
+.app-header h1,
+.app-header p,
+.filter-panel,
+.filter-section h3,
+.checkbox-label, 
+.radio-label,
+.clear-filter-btn,
+.clear-all-btn, 
+.doctor-card,
+.doctor-card h2,
+.doctor-card p,
+.doctor-image img,
+.search-input,
+.suggestions-list,
+.suggestions-list li,
+.no-doctors,
+.loading,
+.error {
+  transition: none !important;
+}

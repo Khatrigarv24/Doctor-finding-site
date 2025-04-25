@@ -1,0 +1,110 @@
+.doctor-card {
+  display: flex;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  margin-bottom: 20px;
+  background-color: var(--card-bg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.doctor-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--shadow-color);
+  border-color: var(--accent-color);
+}
+
+.doctor-image {
+  margin-right: 20px;
+  flex: 0 0 100px;
+}
+
+.doctor-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: border-color 0.3s ease;
+}
+
+.doctor-card:hover .doctor-image img {
+  border-color: var(--accent-color);
+}
+
+.doctor-info {
+  flex: 1;
+}
+
+.doctor-info h2 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: var(--text-color);
+}
+
+.doctor-info p {
+  margin: 6px 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.doctor-info p[data-testid="doctor-specialty"] {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.doctor-info p[data-testid="doctor-experience"] {
+  color: var(--text-muted);
+}
+
+.doctor-info p[data-testid="doctor-fee"] {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.doctor-consult-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.doctor-consult-info span {
+  padding: 4px 12px;
+  font-size: 12px;
+  border-radius: 30px;
+  font-weight: 500;
+}
+
+.video-consult {
+  background-color: var(--video-consult-bg);
+  color: var(--video-consult-color);
+  border: 1px solid var(--video-consult-color);
+}
+
+.in-clinic {
+  background-color: var(--in-clinic-bg);
+  color: var(--in-clinic-color);
+  border: 1px solid var(--in-clinic-color);
+}
+
+@media (max-width: 640px) {
+  .doctor-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .doctor-image {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .doctor-consult-info {
+    justify-content: center;
+  }
+}

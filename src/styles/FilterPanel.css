@@ -1,0 +1,139 @@
+.filter-panel {
+  background-color: var(--filter-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Add scroll for options if they're too many */
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 200px; /* Maximum height before scrolling */
+  overflow-y: auto; /* Enable scrolling for many options */
+}
+
+/* Style the scrollbar */
+.filter-options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.filter-options::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 3px;
+}
+
+.filter-options::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+.filter-section {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filter-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.filter-section h3 {
+  font-size: 16px;
+  color: var(--text-color);
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  position: relative;
+  font-weight: 600;
+}
+
+.filter-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+  border-radius: 3px;
+}
+
+.checkbox-label, .radio-label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: var(--text-color);
+}
+
+.checkbox-label:hover, .radio-label:hover {
+  background-color: var(--hover-bg);
+  color: var(--accent-color);
+}
+
+.checkbox-label input, .radio-label input {
+  margin-right: 10px;
+  accent-color: var(--accent-color);
+}
+
+/* Clear filter buttons */
+.clear-filter-btn {
+  margin-top: 14px;
+  padding: 6px 12px;
+  font-size: 13px;
+  color: var(--text-color);
+  background-color: var(--scrollbar-track);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clear-filter-btn:hover {
+  background-color: var(--scrollbar-thumb);
+  color: var(--text-color);
+}
+
+.filter-clear {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.clear-all-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: white;
+  background: linear-gradient(90deg, var(--accent-hover), var(--accent-color));
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  width: 100%; /* Make button full width */
+}
+
+.clear-all-btn:hover {
+  background: linear-gradient(90deg, var(--header-color), var(--accent-hover));
+  filter: brightness(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .filter-panel {
+    padding: 15px;
+  }
+  
+  .filter-options {
+    max-height: none; /* Don't limit height on mobile */
+  }
+}

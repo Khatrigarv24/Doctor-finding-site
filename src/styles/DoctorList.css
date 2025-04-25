@@ -1,0 +1,18 @@
+.container {
+    padding: 20px;
+}
+
+.doctor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.no-doctors {
+  text-align: center;
+  padding: 40px;
+  background-color: #f7fafc;
+  border-radius: 8px;
+  color: #718096;
+  font-size: 16px;
+}

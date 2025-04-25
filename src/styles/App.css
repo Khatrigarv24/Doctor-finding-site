@@ -1,0 +1,200 @@
+/* Create a global transition overlay effect */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.theme-transitioning::after {
+  opacity: 0.5;
+}
+
+:root {
+  /* Light theme variables */
+  --background-color: #f7fafc;
+  --text-color: #2d3748;
+  --text-muted: #718096;
+  --header-color: #2c5282;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(0, 0, 0, 0.07);
+  --accent-color: #4299e1;
+  --accent-hover: #3182ce;
+  --filter-bg: #f8fafc;
+  --hover-bg: #ebf4ff;
+  --error-bg: #fff5f5;
+  --error-color: #c53030;
+  --video-consult-bg: #ebf8ff;
+  --video-consult-color: #2b6cb0;
+  --in-clinic-bg: #e6fffa;
+  --in-clinic-color: #2c7a7b;
+  --scrollbar-track: #edf2f7;
+  --scrollbar-thumb: #cbd5e0;
+}
+
+/* Dark theme variables */
+.dark-theme, body.dark-mode {
+  --background-color: #1a202c;
+  --text-color: #e2e8f0;
+  --text-muted: #a0aec0;
+  --header-color: #63b3ed;
+  --card-bg: #2d3748;
+  --border-color: #4a5568;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --accent-color: #63b3ed;
+  --accent-hover: #4299e1;
+  --filter-bg: #2d3748;
+  --hover-bg: #3182ce30;
+  --error-bg: #5c2023;
+  --error-color: #fc8181;
+  --video-consult-bg: #234e70;
+  --video-consult-color: #90cdf4;
+  --in-clinic-bg: #234c4d;
+  --in-clinic-color: #9ae6b4;
+  --scrollbar-track: #2d3748;
+  --scrollbar-thumb: #4a5568;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--background-color);
+  min-height: 100vh;
+  position: relative;
+}
+
+.app-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.app-header h1 {
+  color: var(--header-color);
+  font-size: 32px;
+  margin-bottom: 8px;
+  position: relative;
+  display: inline-block;
+}
+
+.app-header h1::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.app-header p {
+  color: var(--text-muted);
+  font-size: 16px;
+  max-width: 600px;
+  margin: 20px auto 0;
+}
+
+/* App content layout */
+.app-content {
+  display: flex;
+  gap: 30px;
+}
+
+/* Filter container with sticky positioning */
+.filter-container {
+  flex: 0 0 280px; /* Fixed width */
+  position: sticky;
+  top: 20px; /* Distance from top of viewport when sticking */
+  height: fit-content; /* Prevent stretching beyond content */
+  max-height: calc(100vh - 40px); /* Maximum height */
+  overflow-y: auto; /* Enable scroll if content is too tall */
+}
+
+/* Enhanced scrollbar for filter panel */
+.filter-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.filter-container::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 4px;
+}
+
+.filter-container::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+/* Doctors container */
+.doctors-container {
+  flex: 1; /* Takes remaining space */
+}
+
+.no-doctors {
+  padding: 40px;
+  text-align: center;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px var(--shadow-color);
+  border: 1px solid var(--border-color);
+}
+
+.no-doctors h2 {
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.no-doctors p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+.error {
+  padding: 20px;
+  color: var(--error-color);
+  background-color: var(--error-bg);
+  border: 1px solid var(--error-color);
+  border-radius: 8px;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+  .app-content {
+    flex-direction: column;
+  }
+  
+  .filter-container {
+    position: static; /* Disable sticky positioning on mobile */
+    width: 100%;
+    max-height: none; /* Allow full expansion on mobile */
+    margin-bottom: 20px;
+  }
+}
