@@ -5,7 +5,7 @@ import SearchBar from './SearchBar';
 import FilterPanel from './FilterPanel';
 import DoctorList from './DoctorList';
 import ThemeToggle from './ThemeToggle';
-import '../styles/App.css';
+import '../styles/App.css'; // Change the path to point to /src/styles folder
 
 const App = () => {
   const [doctors, setDoctors] = useState([]);
