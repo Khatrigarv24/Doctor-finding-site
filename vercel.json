@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "doctor-listing-app/public/index.html" }
   ],
   "buildCommand": "npm run build",
   "outputDirectory": "build",
